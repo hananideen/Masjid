@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Hanani on 2/3/2016.
@@ -16,11 +17,7 @@ import java.util.ArrayList;
 public class MainFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<String> myDataset;
+    private List<Event> events;
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -39,26 +36,32 @@ public class MainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_main, null);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_main, null);
 
-        myDataset = new ArrayList<>();
-        myDataset.add("Event Title");
-        myDataset.add("Event Title");
-
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        initializeData();
+
         // specify an adapter (see also next example)
-        mAdapter = new EventAdapter(myDataset);
+        EventAdapter mAdapter = new EventAdapter(events);
         mRecyclerView.setAdapter(mAdapter);
 
         return root;
+    }
+
+    private void initializeData(){
+        events = new ArrayList<>();
+        events.add(new Event("Ceramah Bulanan", "7 March 2016"));
+        events.add(new Event("Kuliah Maghrib", "10 March 2016"));
+        events.add(new Event("Akad Nikah Hanani & Faris", "19 March 2016"));
+        events.add(new Event("Ceramah Bulanan", "1 April 2016"));
     }
 }

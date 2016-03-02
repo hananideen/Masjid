@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="Event Title"
                 android:padding="8dp"
+                android:textSize="20sp"
                 android:id="@+id/tvTitle" />
 
             <TextView
