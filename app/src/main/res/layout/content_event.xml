@@ -13,33 +13,104 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvDate"
-            android:layout_margin="@dimen/text_margin"
-            android:text="Date" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvSpeaker"
-            android:layout_margin="@dimen/text_margin"
-            android:text="Speaker" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/icDate"
+                android:padding="8dp"
+                android:src="@drawable/ic_event_black_24dp"/>
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:id="@+id/tvDate"
+                android:layout_centerVertical="true"
+                android:text="Date"
+                android:layout_toRightOf="@+id/icDate"
+                android:layout_toEndOf="@+id/icDate"/>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvTime"
-            android:layout_margin="@dimen/text_margin"
-            android:text="Time" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/icSpeaker"
+                android:padding="8dp"
+                android:src="@drawable/ic_face_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:id="@+id/tvSpeaker"
+                android:text="Speaker"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/icSpeaker"
+                android:layout_toEndOf="@+id/icSpeaker"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/icTime"
+                android:padding="8dp"
+                android:src="@drawable/ic_access_time_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:id="@+id/tvTime"
+                android:text="Time"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/icTime"
+                android:layout_toEndOf="@+id/icTime"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/icPlace"
+                android:padding="8dp"
+                android:src="@drawable/ic_place_black_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:id="@+id/tvPlace"
+                android:text="Place"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/icPlace"
+                android:layout_toEndOf="@+id/icPlace"/>
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvDescription"
             android:layout_margin="@dimen/text_margin"
-            android:text="@string/large_text" />
+            android:text="Desription" />
 
     </LinearLayout>
 

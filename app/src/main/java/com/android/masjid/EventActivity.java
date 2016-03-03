@@ -16,30 +16,21 @@ public class EventActivity extends AppCompatActivity {
     public static String SPEAKER = "speaker";
     public static String TIME = "time";
 
+    private String title, date, speaker, time;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        CollapsingToolbarLayout collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
-        String title = getIntent().getStringExtra(TITLE);
-        String date = getIntent().getStringExtra(DATE);
-        String speaker = getIntent().getStringExtra(SPEAKER);
-        String time = getIntent().getStringExtra(TIME);
+        title = getIntent().getStringExtra(TITLE);
+        date = getIntent().getStringExtra(DATE);
+        speaker = getIntent().getStringExtra(SPEAKER);
+        time = getIntent().getStringExtra(TIME);
 
-        collapsingToolbarLayout.setTitle(title);
-        toolbar.setTitle(title);
+        setToolbar();
 
-        TextView tvDate = (TextView) findViewById(R.id.tvDate);
-        TextView tvSpeaker = (TextView) findViewById(R.id.tvSpeaker);
-        TextView tvTime = (TextView) findViewById(R.id.tvTime);
-        TextView tvDescription = (TextView) findViewById(R.id.tvDescription);
-
-        tvDate.setText(date);
-        tvSpeaker.setText(speaker);
-        tvTime.setText(time);
+        setData();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -48,5 +39,29 @@ public class EventActivity extends AppCompatActivity {
                 Snackbar.make(view, "Favourite!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+    }
+
+    private void setToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        CollapsingToolbarLayout collapsingToolbarLayout=(CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+
+        collapsingToolbarLayout.setTitle(title);
+        toolbar.setTitle(title);
+    }
+
+    private void  setData(){
+        TextView tvDate = (TextView) findViewById(R.id.tvDate);
+        TextView tvSpeaker = (TextView) findViewById(R.id.tvSpeaker);
+        TextView tvTime = (TextView) findViewById(R.id.tvTime);
+        TextView tvPlace = (TextView) findViewById(R.id.tvPlace);
+        TextView tvDescription = (TextView) findViewById(R.id.tvDescription);
+
+        tvDate.setText(date);
+        tvSpeaker.setText(speaker);
+        tvTime.setText(time);
+        tvPlace.setText("Masjid Kita");
+        tvDescription.setText(getString(R.string.large_text));
     }
 }
