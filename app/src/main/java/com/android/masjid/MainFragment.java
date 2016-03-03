@@ -51,7 +51,7 @@ public class MainFragment extends Fragment {
         initializeData();
 
         // specify an adapter (see also next example)
-        EventAdapter mAdapter = new EventAdapter(events);
+        EventAdapter mAdapter = new EventAdapter(events, getContext());
         mRecyclerView.setAdapter(mAdapter);
 
         return root;

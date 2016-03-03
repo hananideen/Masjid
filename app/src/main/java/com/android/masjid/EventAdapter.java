@@ -1,5 +1,7 @@
 package com.android.masjid;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +18,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
         public CardView cardView;
         public TextView tvTitle;
@@ -31,9 +33,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     List<Event> events;
+    Context context;
 
-    EventAdapter(List<Event> events){
+    EventAdapter(List<Event> events, Context context){
         this.events = events;
+        this.context = context;
     }
 
     @Override
@@ -50,9 +54,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.tvTitle.setText(events.get(position).title);
         holder.tvDate.setText(events.get(position).date);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EventActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

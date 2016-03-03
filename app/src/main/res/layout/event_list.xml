@@ -27,12 +27,29 @@
                 android:textSize="20sp"
                 android:id="@+id/tvTitle" />
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Event Date"
-                android:padding="8dp"
-                android:id="@+id/tvDate" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/icDate"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_event_black_24dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Event Date"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:id="@+id/tvDate"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/icDate"
+                    android:layout_toEndOf="@+id/icDate" />
+
+            </RelativeLayout>
 
         </LinearLayout>
 
