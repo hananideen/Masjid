@@ -54,13 +54,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.tvTitle.setText(events.get(position).title);
         holder.tvDate.setText(events.get(position).date);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, EventActivity.class);
+                intent.putExtra(EventActivity.TITLE, events.get(position).title);
+                intent.putExtra(EventActivity.DATE, events.get(position).date);
+                intent.putExtra(EventActivity.SPEAKER, events.get(position).speaker);
+                intent.putExtra(EventActivity.TIME, events.get(position).time);
                 context.startActivity(intent);
             }
         });

@@ -59,9 +59,10 @@ public class MainFragment extends Fragment {
 
     private void initializeData(){
         events = new ArrayList<>();
-        events.add(new Event("Ceramah Bulanan", "7 March 2016"));
-        events.add(new Event("Kuliah Maghrib", "10 March 2016"));
-        events.add(new Event("Akad Nikah Hanani & Faris", "19 March 2016"));
-        events.add(new Event("Ceramah Bulanan", "1 April 2016"));
+        events.add(new Event("Ceramah Bulanan", "7 March 2016", "Ust Azhar", "10am - 12pm", ""));
+        events.add(new Event("Kuliah Maghrib", "10 March 2016", "Ust Ahmad", "7.45pm - 8.30pm", ""));
+        events.add(new Event("Akad Nikah Hanani & Faris", "19 March 2016", "Tok Kadi", "9am - 10am", ""));
+        events.add(new Event("Kuliah Nisa'", "25 March 2016", "Ustzh Hanani", "11am - 1pm", ""));
+        events.add(new Event("Ceramah Bulanan", "1 April 2016", "Ust Faris", "10am - 12pm", ""));
     }
 }
